@@ -1,0 +1,18 @@
+spring:
+  liquibase:
+    enabled: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:file:./target/h2db/db/demo;DB_CLOSE_DELAY=-1
+    hikari:
+      pool-name: Hikari
+      auto-commit: false
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  security:
+    user:
+      name: admin
+      password: admin
