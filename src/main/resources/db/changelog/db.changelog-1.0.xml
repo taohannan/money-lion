@@ -43,4 +43,13 @@
                                  constraintName="fk_features_user" referencedTableName="features"
                                  referencedColumnNames="id"/>
     </changeSet>
+    <changeSet id="5" author="hannan">
+        <loadData tableName="user" file="db/changelog/data/user.csv" separator=";"/>
+    </changeSet>
+    <changeSet id="6" author="hannan">
+        <loadData tableName="features" file="db/changelog/data/features.csv" separator=";"/>
+    </changeSet>
+    <changeSet id="7" author="hannan">
+        <loadData tableName="user_features" file="db/changelog/data/user_features.csv" separator=";"/>
+    </changeSet>
 </databaseChangeLog>
