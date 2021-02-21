@@ -19,4 +19,28 @@
             <dropTable tableName="user"/>
         </rollback>
     </changeSet>
+    <changeSet id="2" author="hannan">
+        <createTable tableName="user_features">
+            <column name="id" autoIncrement="true" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="INT"/>
+            <column name="feature_id" type="INT"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="user_features" baseColumnNames="user_id" constraintName="fk_user_features" referencedTableName="user"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="3" author="hannan">
+        <createTable tableName="features">
+            <column name="id" autoIncrement="true" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="hannan">
+        <addForeignKeyConstraint baseTableName="user_features" baseColumnNames="feature_id"
+                                 constraintName="fk_features_user" referencedTableName="features"
+                                 referencedColumnNames="id"/>
+    </changeSet>
 </databaseChangeLog>
