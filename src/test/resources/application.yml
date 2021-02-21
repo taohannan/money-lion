@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    #    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:mem:demo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    #    hikari:
+    #      pool-name: Hikari
+    #      auto-commit: false
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  liquibase:
+    enabled: false
+
+
+
