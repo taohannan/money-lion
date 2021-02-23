@@ -19,7 +19,10 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @ManyToMany
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
     @JoinTable(
             name ="user_features",
             joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id")},
@@ -58,6 +61,16 @@ public class User implements Serializable {
 
     public void setFeature(Set<Features> feature) {
         this.feature = feature;
+    }
+
+    public void addFeatures(Features feat){
+        feature.add(feat);
+        feat.getUser().add(this);
+    }
+
+    public void removeFeatures(Features features) {
+        feature.remove(features);
+        features.getUser().remove(this);
     }
 
     @Override

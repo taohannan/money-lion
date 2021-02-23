@@ -2,6 +2,8 @@ package com.moneylion.demo.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="features")
@@ -13,6 +15,9 @@ public class Features implements Serializable {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToMany(mappedBy = "feature")
+    private Set<User> user = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -28,6 +33,14 @@ public class Features implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<User> getUser() {
+        return user;
+    }
+
+    public void setUser(Set<User> user) {
+        this.user = user;
     }
 
     @Override

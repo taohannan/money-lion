@@ -1,9 +1,11 @@
 package com.moneylion.demo.controller;
 
+import com.moneylion.demo.controller.vm.RequestDto;
 import com.moneylion.demo.controller.vm.ResponseDto;
 import com.moneylion.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,8 +34,13 @@ public class AccountResource {
         responseDto.setCanAccess(canAccess);
 
         return ResponseEntity.ok(responseDto);
+    }
 
+    @PostMapping("/feature")
+    public ResponseEntity<?> updateFeatures(@RequestBody RequestDto requestDto) throws Exception {
 
+        userService.updateFeatures(requestDto);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
