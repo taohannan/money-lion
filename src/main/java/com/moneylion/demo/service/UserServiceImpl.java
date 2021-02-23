@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService{
                 userDetails.addFeatures(feature);
                 userRepository.save(userDetails);
             }else{
-                throw new Exception();
+                throw new Exception("Feature not Exist");
             }
         }else{
             if (featuresDetails.stream().anyMatch(x -> x.getName().equalsIgnoreCase(requestDto.getFeatureName()))) {
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService{
                 userDetails.removeFeatures(feature);
                 userRepository.save(userDetails);
             }else{
-                throw new Exception();
+                throw new Exception("Feature not Exist");
             }
         }
 
