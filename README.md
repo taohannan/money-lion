@@ -28,8 +28,8 @@ List of user + features
 
 Example of endpoints
 -
-GET http://localhost:8080/feature?email=user1@yahoo.com&featureName=features_5
-POST http://localhost:8080/feature {
+- GET http://localhost:8080/feature?email=user1@yahoo.com&featureName=features_5
+- POST http://localhost:8080/feature {
                                    	"featureName" :"features_7",
                                    	"email" : "user1@yahoo.com",
                                    	"enable" : true
